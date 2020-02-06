@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModel
 private const val TAG = "QuizViewModel"
 
 class QuizViewModel : ViewModel() {
-    var currentIndex: Int = 0
+    var currentIndex = 0
     var isCheater = false
+    var isCheaterBySearch = false
 
     private val questionBank = listOf(
         Question(R.string.question_australia, true),
@@ -16,12 +17,12 @@ class QuizViewModel : ViewModel() {
         Question(R.string.question_asia, true)
     )
 
-    init { Log.d(TAG, "ViewModel instance created") }
+    //init { Log.d(TAG, "ViewModel instance created") }
 
-    override fun onCleared() {
+    /*override fun onCleared() {
         super.onCleared()
         Log.d(TAG, "ViewModel instance about to be destroyed")
-    }
+    }*/
 
     val currentQuestionAnswer: Boolean
         get() = questionBank[currentIndex].answer

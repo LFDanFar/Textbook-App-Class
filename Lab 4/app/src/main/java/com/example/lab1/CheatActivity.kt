@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProviders
 import java.security.AccessControlContext
 
 const val EXTRA_ANSWER_SHOWN = "com.bignerdranch.android.geoquiz.answer_shown"
@@ -17,6 +18,10 @@ class CheatActivity : AppCompatActivity() {
     private lateinit var answerTextView: TextView
     private lateinit var showAnswerButton: Button
 
+    private val cheatViewModel: CheatViewModel by lazy {
+        ViewModelProviders.of(this).get(CheatViewModel::class.java)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cheat)
@@ -24,14 +29,22 @@ class CheatActivity : AppCompatActivity() {
         answerIsTrue = intent.getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false)
         answerTextView = findViewById(R.id.answer_text_view)
         showAnswerButton = findViewById(R.id.show_answer_button)
+
         showAnswerButton.setOnClickListener{
             val answerText = when {
                 answerIsTrue -> R.string.true_button
                 else -> R.string.false_button
             }
             answerTextView.setText(answerText)
-            setAnswerShownResult(true)
+            cheatViewModel.answerShown = true
+            setAnswerShownResult(cheatViewModel.answerShown)
         }
+
+    }
+
+    /*override*/ fun OnResume(){
+        super.onResume()
+        setAnswerShownResult(cheatViewModel.answerShown)
     }
 
     private fun setAnswerShownResult(isAnswerShown: Boolean){

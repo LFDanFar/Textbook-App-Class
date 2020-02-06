@@ -6,6 +6,7 @@
     <string name="show_answer_button">Show answer</string>
     <string name="cheat_button">Cheat!</string>
     <string name="judgment_toast">Cheating is wrong.</string>
+    <string name="search_judgment_toast">Googling your answers is just as much cheating as writing it on your shoe.  Drop out kiddo, you lost</string>
     <string name="next_button">Next</string>
     <string name="true_button">True</string>
     <string name="false_button">False</string>

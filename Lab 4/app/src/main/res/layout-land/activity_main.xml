@@ -33,16 +33,16 @@
         android:id="@+id/true_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/true_button"
+        android:layout_gravity="center|left"
         android:gravity="center"
-        android:layout_gravity="bottom|left"
+        android:text="@string/true_button"
         app:layout_constraintBottom_toTopOf="@+id/next_Button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview" />
 
     <Button
         android:id="@+id/false_Button"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="center|right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/false_button"
@@ -61,4 +61,22 @@
         app:layout_constraintEnd_toStartOf="@+id/false_Button"
         app:layout_constraintStart_toEndOf="@+id/true_Button"
         app:layout_constraintTop_toBottomOf="@+id/textview" />
+
+    <Button
+        android:id="@+id/cheat_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search it"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        />
+    <Button
+        android:id="@+id/cheat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cheat"
+        android:orientation="horizontal"
+        android:layout_gravity="left"
+        />
+
 </FrameLayout>
